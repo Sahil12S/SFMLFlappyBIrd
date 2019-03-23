@@ -11,3 +11,5 @@ It manages all of input, mouse clicks or button presses.
 
 ## Getting started
 1. Create Start screen as Splash State.  
+2. Go to Main Menu state from Splash State.  
+3. Create Game State on click of Play Button.  
