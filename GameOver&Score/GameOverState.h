@@ -24,6 +24,7 @@ namespace SSEngine
         sf::Sprite m_GameOverTitle;
         sf::Sprite m_GameOverContainer;
         sf::Sprite m_RetryButton;
+        sf::Sprite m_Medal;
 
         sf::Text m_ScoreText;
         sf::Text m_HighScoreText;

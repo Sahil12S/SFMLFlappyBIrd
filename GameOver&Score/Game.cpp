@@ -11,6 +11,7 @@ namespace SSEngine
         srand( time( NULL ));
 
         m_Data->window.create( sf::VideoMode( width, height ), title, sf::Style::Close | sf::Style::Titlebar );
+        m_Data->window.setFramerateLimit( 60 );
         m_Data->machine.AddState( StateRef(new SplashState( this-> m_Data ) ) );
         this->Run();
     }

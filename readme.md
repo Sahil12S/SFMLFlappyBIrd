@@ -27,3 +27,5 @@ It manages all of input, mouse clicks or button presses.
 15. Update score on collision with invisible pipe.  
 16. Display score on screen (HUD class).  
 17. Prepare Game Over state and display current score.  
+18. Store high score and display.  
+19. Add Medals.  

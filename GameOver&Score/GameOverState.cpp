@@ -1,5 +1,6 @@
 #include <sstream>
 #include <iostream>
+#include <fstream>
 
 #include "GameOverState.h"
 #include "GameState.h"
@@ -13,13 +14,39 @@ namespace SSEngine
 
     void GameOverState::Init()
     {
+        std::ifstream readFile;
+        readFile.open( HIGH_SCORE_FILEPATH );
+
+        if ( readFile.is_open() )
+        {
+            while ( !readFile.eof() )
+            {
+                readFile >> m_HighScore;
+            }
+        }
+        readFile.close();
+
+        std::ofstream writeFile( HIGH_SCORE_FILEPATH );
+
+        if ( writeFile.is_open() )
+        {
+            if ( m_Score > m_HighScore )
+            {
+                m_HighScore = m_Score;
+            }
+
+            writeFile << m_HighScore;
+        }
+        writeFile.close();
+
         // std::cout << "Game over state" << std::endl;
-        m_Data->assests.LoadTexture( "Game Over Background",
-                                     GAME_OVER_BACKGROUND_FILEPATH );
-        m_Data->assests.LoadTexture( "Game Over Title",
-                                     GAME_OVER_TITLE_FILEPATH );
-        m_Data->assests.LoadTexture( "Game Over Body",
-                                     GAME_OVER_BODY_FILEPATH );
+        m_Data->assests.LoadTexture( "Game Over Background", GAME_OVER_BACKGROUND_FILEPATH );
+        m_Data->assests.LoadTexture( "Game Over Title", GAME_OVER_TITLE_FILEPATH );
+        m_Data->assests.LoadTexture( "Game Over Body", GAME_OVER_BODY_FILEPATH );
+        m_Data->assests.LoadTexture( "Bronze Medal", BRONZE_MEDAL_FILEPATH );
+        m_Data->assests.LoadTexture( "Silver Medal", SILVER_MEDAL_FILEPATH );
+        m_Data->assests.LoadTexture( "Gold Medal", GOLD_MEDAL_FILEPATH );
+        m_Data->assests.LoadTexture( "Platinum Medal", PLATINUM_MEDAL_FILEPATH );
 
         m_BackgroundSprite.setTexture( this->m_Data->assests.GetTexture( "Game Over Background" ));
         m_GameOverTitle.setTexture( this->m_Data->assests.GetTexture( "Game Over Title" ));
@@ -53,6 +80,24 @@ namespace SSEngine
         m_HighScoreText.setOrigin( m_HighScoreText.getGlobalBounds().width / 2, m_HighScoreText.getGlobalBounds().height / 2 );
         m_HighScoreText.setPosition( m_Data->window.getSize().x / 10.0f * 7.25f, m_Data->window.getSize().y / 1.78f );
 
+        if ( m_Score >= PLATINUM_MEDAL_SCORE )
+        {
+            m_Medal.setTexture( m_Data->assests.GetTexture( "Platinum Medal" ) );
+        }
+        else if ( m_Score >= GOLD_MEDAL_SCORE )
+        {
+            m_Medal.setTexture( m_Data->assests.GetTexture( "Gold Medal" ) );
+        }
+        else if ( m_Score >= SILVER_MEDAL_SCORE )
+        {
+            m_Medal.setTexture( m_Data->assests.GetTexture( "Silver Medal" ) );
+        }
+        else
+        {
+            m_Medal.setTexture( m_Data->assests.GetTexture( "Bronze Medal" ) );
+        }
+
+        m_Medal.setPosition( 175, 465 );
     }
 
     void GameOverState::HandleInput()
@@ -88,6 +133,8 @@ namespace SSEngine
         m_Data->window.draw( m_RetryButton );
         m_Data->window.draw( m_ScoreText );
         m_Data->window.draw( m_HighScoreText );
+        m_Data->window.draw( m_Medal );
+
         m_Data->window.display();
     }
 
