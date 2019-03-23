@@ -95,7 +95,7 @@ namespace SSEngine
         m_BirdState = BIRD_STATE_FLYING;
     }
 
-    const sf::Sprite& Bird::GetSprite() const
+    const sf::Sprite& Bird::GetSprites() const
     {
         return m_BirdSprite;
     }

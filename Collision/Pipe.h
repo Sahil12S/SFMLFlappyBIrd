@@ -23,6 +23,8 @@ namespace SSEngine
         void DrawPipes();
         void RandomizePipeOffset();
 
+        const std::vector<sf::Sprite>& GetSprites() const;
+
     private:
         GameDataRef m_Data;
         std::vector<sf::Sprite> m_PipeSprites;

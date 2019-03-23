@@ -18,7 +18,7 @@ namespace SSEngine
 
         void Tap();
 
-        const sf::Sprite& GetSprite() const;
+        const sf::Sprite& GetSprites() const;
 
     private:
         GameDataRef m_Data;

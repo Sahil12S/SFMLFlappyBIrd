@@ -76,7 +76,7 @@ namespace SSEngine
             if (m_Clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY)
             {
                 m_Pipe->RandomizePipeOffset();
-                // m_Pipe->SpawnInvisiblePipe();
+                m_Pipe->SpawnInvisiblePipe();
                 m_Pipe->SpawnBottomPipe();
                 m_Pipe->SpawnTopPipe();
 
@@ -85,11 +85,21 @@ namespace SSEngine
             m_Bird->Update( dt );
 
             // After bird is updated, check if there's a collision.
-            std::vector<sf::Sprite> landSprites = m_Land->GetSprite();
+            std::vector<sf::Sprite> landSprites = m_Land->GetSprites();
 
             for ( unsigned int i = 0; i < landSprites.size(); i++ )
             {
-                if ( collision.CheckSpriteCollision(m_Bird->GetSprite(), landSprites.at( i ) ) )
+                if ( collision.CheckSpriteCollision(m_Bird->GetSprites(), 0.8f, landSprites.at( i ), 1.0f ) )
+                {
+                    m_GameState = GameStates::eGameOver;
+                }
+            }
+
+            std::vector<sf::Sprite> pipeSprites = m_Pipe->GetSprites();
+
+            for ( unsigned int i = 0; i < pipeSprites.size(); i++ )
+            {
+                if ( collision.CheckSpriteCollision(m_Bird->GetSprites(), 0.625f, pipeSprites.at( i ), 1.0f ) )
                 {
                     m_GameState = GameStates::eGameOver;
                 }

@@ -66,4 +66,9 @@ namespace SSEngine
     {
         m_PipeSpawnYOffset = rand() % ( m_LandHeight + 1 );
     }
+
+    const std::vector<sf::Sprite>& Pipe::GetSprites() const
+    {
+        return m_PipeSprites;
+    }
 }

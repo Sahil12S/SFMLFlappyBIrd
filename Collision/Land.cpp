@@ -41,7 +41,7 @@ namespace SSEngine
         }
     }
 
-    const std::vector<sf::Sprite>& Land::GetSprite() const
+    const std::vector<sf::Sprite>& Land::GetSprites() const
     {
         return m_LandSprites;
     }
