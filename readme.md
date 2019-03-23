@@ -26,3 +26,4 @@ It manages all of input, mouse clicks or button presses.
 14. Flash screen on game over.  
 15. Update score on collision with invisible pipe.  
 16. Display score on screen (HUD class).  
+17. Prepare Game Over state and display current score.  
