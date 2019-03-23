@@ -15,3 +15,5 @@ It manages all of input, mouse clicks or button presses.
 3. Create Game State on click of Play Button.  
 4. Create Game Over State and you can test it by running this state insteam of Game State.  
 5. Now create Pipe Class to load pipes in game.  
+6. Create pipe movement and add land too.  
+7. Randomize height of pipes.  

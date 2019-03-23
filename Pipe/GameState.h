@@ -4,6 +4,7 @@
 #include "State.h"
 #include "Game.h"
 #include "Pipe.h"
+#include "Land.h"
 
 namespace SSEngine
 {
@@ -25,5 +26,8 @@ namespace SSEngine
         sf::Sprite m_BackgroundSprite;
 
         Pipe* m_Pipe;
+        Land* m_Land;
+
+        sf::Clock m_Clock;
     };
 }

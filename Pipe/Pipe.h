@@ -20,11 +20,14 @@ namespace SSEngine
         void SpawnInvisiblePipe();
 
         void MovePipes( float dt );
-
         void DrawPipes();
+        void RandomizePipeOffset();
 
     private:
         GameDataRef m_Data;
         std::vector<sf::Sprite> m_PipeSprites;
+
+        int m_LandHeight;
+        int m_PipeSpawnYOffset;
     };
 }
