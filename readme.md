@@ -23,3 +23,4 @@ It manages all of input, mouse clicks or button presses.
 11. Detect collision with land.  
 12. Collision detection with pipes.  
 13. Fine tune collision by scaling down sprites.  
+14. Flash screen on game over.  
