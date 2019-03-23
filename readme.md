@@ -13,3 +13,5 @@ It manages all of input, mouse clicks or button presses.
 1. Create Start screen as Splash State.  
 2. Go to Main Menu state from Splash State.  
 3. Create Game State on click of Play Button.  
+4. Create Game Over State and you can test it by running this state insteam of Game State.  
+5. Now create Pipe Class to load pipes in game.  
