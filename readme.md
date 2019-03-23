@@ -17,3 +17,5 @@ It manages all of input, mouse clicks or button presses.
 5. Now create Pipe Class to load pipes in game.  
 6. Create pipe movement and add land too.  
 7. Randomize height of pipes.  
+8. Draw Bird on screen and animate it.  
+9. Create control with tap.  
