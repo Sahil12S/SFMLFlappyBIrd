@@ -32,9 +32,11 @@ It manages all of input, mouse clicks or button presses.
 20. Add Audio effects.  
   
 ## Next steps
-- [ ] Increase difficulty as score increase.  
-- [ ] Separate assest for sound.  
-- [ ] Close button.  
-- [ ] Background Music  
+- [x] Increase difficulty as score increase.  
+- [x] Separate assest for sound.  
+- [x] Close button.  
+- [x] Background Music  
 - [ ] Fireworks on high score  
 - [ ] Different Levels  
+- [ ] Sound on/off  
+- [ ] Music on/off  
